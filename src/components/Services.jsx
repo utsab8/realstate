@@ -25,7 +25,9 @@ const Services = () => {
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
+          {services.map((service, index) => {
+            const slug = service.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
+            return (
             <motion.div 
               key={service.id}
               initial={{ opacity: 0, y: 30 }}
@@ -35,7 +37,7 @@ const Services = () => {
               className="group relative bg-surface border border-surface-border rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col"
             >
               {/* Image Section */}
-              <Link to={`/service/${service.id}`} className="w-full h-48 relative bg-base-alt overflow-hidden block">
+              <Link to={`/service/${slug}`} className="w-full h-48 relative bg-base-alt overflow-hidden block">
                 <img 
                   src={service.image} 
                   alt={service.title} 
@@ -45,7 +47,7 @@ const Services = () => {
 
               {/* Content Section */}
               <div className="p-6 pt-10 flex flex-col flex-grow">
-                <Link to={`/service/${service.id}`} className="text-xl font-heading font-bold text-text mb-3 hover:text-accent transition-colors block">
+                <Link to={`/service/${slug}`} className="text-xl font-heading font-bold text-text mb-3 hover:text-accent transition-colors block">
                   {service.title}
                 </Link>
                 <p className="text-sm text-text-muted leading-relaxed mb-6">
@@ -54,7 +56,7 @@ const Services = () => {
                 
                 <div className="mt-auto">
                   <Link 
-                    to={`/service/${service.id}`}
+                    to={`/service/${slug}`}
                     className="inline-flex items-center text-sm font-semibold text-accent hover:text-accent-hover transition-colors group/link"
                   >
                     Learn More 

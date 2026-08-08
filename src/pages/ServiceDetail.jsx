@@ -5,8 +5,11 @@ import { ArrowLeft, CheckCircle2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const ServiceDetail = () => {
-  const { id } = useParams();
-  const service = services.find(s => s.id === parseInt(id));
+  const { slug } = useParams();
+  const service = services.find(s => 
+    s.id === parseInt(slug) || 
+    s.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '') === slug
+  );
 
   // Scroll to top when loading the page
   useEffect(() => {
@@ -38,7 +41,7 @@ const ServiceDetail = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-base to-black/40"></div>
         <div className="absolute inset-0 flex items-center">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-16">
-            <Link to="/#services" className="inline-flex items-center text-white/80 hover:text-white font-medium mb-6 transition-colors drop-shadow-md">
+            <Link to="/#services" className="inline-flex items-center text-white/90 hover:text-white font-medium mb-8 transition-colors backdrop-blur-md bg-black/20 hover:bg-black/40 border border-white/30 rounded-full px-5 py-2 w-fit -mt-4">
               <ArrowLeft size={16} className="mr-2" />
               Back to Services
             </Link>
