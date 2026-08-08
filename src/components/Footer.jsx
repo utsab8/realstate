@@ -1,5 +1,5 @@
 import { siteConfig } from '../data/siteConfig';
-import { FaLinkedinIn, FaFacebookF, FaInstagram, FaYoutube } from 'react-icons/fa';
+import { FaLinkedinIn, FaFacebookF, FaInstagram, FaYoutube, FaWhatsapp } from 'react-icons/fa';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -30,6 +30,9 @@ const Footer = () => {
               </a>
               <a href={siteConfig.socialLinks.youtube} className="text-text-muted hover:text-accent transition-colors" aria-label="YouTube">
                 <FaYoutube size={20} />
+              </a>
+              <a href={siteConfig.socialLinks.whatsapp} className="text-text-muted hover:text-accent transition-colors" aria-label="WhatsApp">
+                <FaWhatsapp size={20} />
               </a>
             </div>
           </div>

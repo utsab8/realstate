@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { siteConfig } from '../data/siteConfig';
 import { MapPin, Phone, Mail, CheckCircle2 } from 'lucide-react';
+import { FaLinkedinIn, FaFacebookF, FaInstagram, FaYoutube, FaWhatsapp } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 
 const Contact = () => {
@@ -82,6 +83,27 @@ const Contact = () => {
                 <h4 className="text-lg font-heading font-semibold text-text mb-1">Email</h4>
                 <a href={`mailto:${siteConfig.email}`} className="text-text-muted hover:text-accent transition-colors">
                   {siteConfig.email}
+                </a>
+              </div>
+            </div>
+
+            <div className="pt-4 border-t border-surface-border">
+              <h4 className="text-lg font-heading font-semibold text-text mb-4">Connect with me</h4>
+              <div className="flex space-x-3">
+                <a href={siteConfig.socialLinks.linkedin} className="w-10 h-10 rounded-full bg-surface border border-surface-border flex items-center justify-center text-text-muted hover:text-white hover:bg-accent hover:border-accent transition-all shadow-sm" aria-label="LinkedIn">
+                  <FaLinkedinIn size={18} />
+                </a>
+                <a href={siteConfig.socialLinks.facebook} className="w-10 h-10 rounded-full bg-surface border border-surface-border flex items-center justify-center text-text-muted hover:text-white hover:bg-accent hover:border-accent transition-all shadow-sm" aria-label="Facebook">
+                  <FaFacebookF size={18} />
+                </a>
+                <a href={siteConfig.socialLinks.instagram} className="w-10 h-10 rounded-full bg-surface border border-surface-border flex items-center justify-center text-text-muted hover:text-white hover:bg-accent hover:border-accent transition-all shadow-sm" aria-label="Instagram">
+                  <FaInstagram size={18} />
+                </a>
+                <a href={siteConfig.socialLinks.youtube} className="w-10 h-10 rounded-full bg-surface border border-surface-border flex items-center justify-center text-text-muted hover:text-white hover:bg-accent hover:border-accent transition-all shadow-sm" aria-label="YouTube">
+                  <FaYoutube size={18} />
+                </a>
+                <a href={siteConfig.socialLinks.whatsapp} className="w-10 h-10 rounded-full bg-surface border border-surface-border flex items-center justify-center text-text-muted hover:text-white hover:bg-accent hover:border-accent transition-all shadow-sm" aria-label="WhatsApp">
+                  <FaWhatsapp size={18} />
                 </a>
               </div>
             </div>

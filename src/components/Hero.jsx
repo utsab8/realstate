@@ -6,8 +6,8 @@ const Hero = () => {
     <section id="home" className="relative h-screen flex items-center justify-center bg-base overflow-hidden">
       {/* Background Image / Overlay */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-base/80 z-10"></div>
-        <div className="w-full h-full bg-[url('https://images.unsplash.com/photo-1541888086225-ee8fb89bf44a?q=80&w=2070')] bg-cover bg-center"></div>
+        <div className="absolute inset-0 bg-base/40 backdrop-blur-[2px] z-10"></div>
+        <div className="w-full h-full bg-[url('/hero-bg.jpg')] bg-cover bg-center"></div>
       </div>
 
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">

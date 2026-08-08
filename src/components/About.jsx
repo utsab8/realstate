@@ -51,14 +51,6 @@ const About = () => {
                 With a deep understanding of Nepal's land regulations and technical surveying requirements, I provide accurate, legally compliant, and reliable data for individuals, businesses, and government projects. Whether you are buying land, planning a hydropower project, or resolving a boundary dispute, I am here to guide you through the process.
               </p>
             </div>
-
-            <a 
-              href="/cv.pdf" 
-              className="inline-flex items-center gap-2 border border-surface-border hover:border-accent text-text px-6 py-3 rounded-md transition-colors"
-            >
-              <Download size={18} className="text-accent" />
-              Download CV
-            </a>
           </motion.div>
 
         </div>

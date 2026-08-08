@@ -9,6 +9,7 @@ export const siteConfig = {
     linkedin: "#",
     facebook: "#",
     instagram: "#",
-    youtube: "#"
+    youtube: "#",
+    whatsapp: "#"
   }
 };
