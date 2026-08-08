@@ -40,5 +40,19 @@ export const gallery = [
     title: "Cadastral Mapping",
     category: "Land",
     description: "Updating land records and creating accurate cadastral maps for government registration."
+  },
+  {
+    id: 7,
+    imageUrl: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1000",
+    title: "Commercial Complex Survey",
+    category: "Ongoing",
+    description: "Current topographic mapping and layout setting for a 12-story commercial building."
+  },
+  {
+    id: 8,
+    imageUrl: "https://images.unsplash.com/photo-1541888086225-ee8fb89bf44a?q=80&w=1000",
+    title: "Regional Highway Expansion",
+    category: "Ongoing",
+    description: "Ongoing route alignment and earthwork volume calculations for regional highway."
   }
 ];

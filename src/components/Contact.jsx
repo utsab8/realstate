@@ -36,7 +36,7 @@ const Contact = () => {
         >
           <h2 className="text-sm text-accent uppercase tracking-widest font-medium mb-3">Get In Touch</h2>
           <h3 className="text-3xl md:text-4xl font-heading font-semibold text-text mb-4">
-            Contact Me
+            Contact Us
           </h3>
           <p className="text-text-muted">
             Have a question about land surveying or a property listing? Send a message and I'll get back to you shortly.
@@ -88,21 +88,21 @@ const Contact = () => {
             </div>
 
             <div className="pt-4 border-t border-surface-border">
-              <h4 className="text-lg font-heading font-semibold text-text mb-4">Connect with me</h4>
+              <h4 className="text-lg font-heading font-semibold text-text mb-4">Connect with us</h4>
               <div className="flex space-x-3">
-                <a href={siteConfig.socialLinks.linkedin} className="w-10 h-10 rounded-full bg-surface border border-surface-border flex items-center justify-center text-text-muted hover:text-white hover:bg-accent hover:border-accent transition-all shadow-sm" aria-label="LinkedIn">
+                <a href={siteConfig.socialLinks.linkedin} className="w-10 h-10 rounded-full bg-surface border border-surface-border flex items-center justify-center text-[#0a66c2] hover:text-white hover:bg-[#0a66c2] hover:border-[#0a66c2] transition-all shadow-sm" aria-label="LinkedIn">
                   <FaLinkedinIn size={18} />
                 </a>
-                <a href={siteConfig.socialLinks.facebook} className="w-10 h-10 rounded-full bg-surface border border-surface-border flex items-center justify-center text-text-muted hover:text-white hover:bg-accent hover:border-accent transition-all shadow-sm" aria-label="Facebook">
+                <a href={siteConfig.socialLinks.facebook} className="w-10 h-10 rounded-full bg-surface border border-surface-border flex items-center justify-center text-[#1877f2] hover:text-white hover:bg-[#1877f2] hover:border-[#1877f2] transition-all shadow-sm" aria-label="Facebook">
                   <FaFacebookF size={18} />
                 </a>
-                <a href={siteConfig.socialLinks.instagram} className="w-10 h-10 rounded-full bg-surface border border-surface-border flex items-center justify-center text-text-muted hover:text-white hover:bg-accent hover:border-accent transition-all shadow-sm" aria-label="Instagram">
+                <a href={siteConfig.socialLinks.instagram} className="w-10 h-10 rounded-full bg-surface border border-surface-border flex items-center justify-center text-[#E1306C] hover:text-white hover:bg-[#E1306C] hover:border-[#E1306C] transition-all shadow-sm" aria-label="Instagram">
                   <FaInstagram size={18} />
                 </a>
-                <a href={siteConfig.socialLinks.youtube} className="w-10 h-10 rounded-full bg-surface border border-surface-border flex items-center justify-center text-text-muted hover:text-white hover:bg-accent hover:border-accent transition-all shadow-sm" aria-label="YouTube">
+                <a href={siteConfig.socialLinks.youtube} className="w-10 h-10 rounded-full bg-surface border border-surface-border flex items-center justify-center text-[#ff0000] hover:text-white hover:bg-[#ff0000] hover:border-[#ff0000] transition-all shadow-sm" aria-label="YouTube">
                   <FaYoutube size={18} />
                 </a>
-                <a href={siteConfig.socialLinks.whatsapp} className="w-10 h-10 rounded-full bg-surface border border-surface-border flex items-center justify-center text-text-muted hover:text-white hover:bg-accent hover:border-accent transition-all shadow-sm" aria-label="WhatsApp">
+                <a href={siteConfig.socialLinks.whatsapp} className="w-10 h-10 rounded-full bg-surface border border-surface-border flex items-center justify-center text-[#25D366] hover:text-white hover:bg-[#25D366] hover:border-[#25D366] transition-all shadow-sm" aria-label="WhatsApp">
                   <FaWhatsapp size={18} />
                 </a>
               </div>
@@ -140,7 +140,7 @@ const Contact = () => {
                         id="name" 
                         required
                         className="w-full bg-base border border-surface-border rounded-md px-4 py-3 text-text focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all"
-                        placeholder="John Doe"
+                        placeholder="Enter the name"
                       />
                     </div>
                     <div>
@@ -150,7 +150,7 @@ const Contact = () => {
                         id="email" 
                         required
                         className="w-full bg-base border border-surface-border rounded-md px-4 py-3 text-text focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all"
-                        placeholder="john@example.com"
+                        placeholder="Enter the email address"
                       />
                     </div>
                   </div>

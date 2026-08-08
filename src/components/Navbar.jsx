@@ -7,13 +7,13 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
 
   const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Services', href: '#services' },
-    { name: 'Properties', href: '#properties' },
-    { name: 'Project', href: '#gallery' },
-    { name: 'FAQ', href: '#faq' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Home', href: '/#home' },
+    { name: 'About', href: '/#about' },
+    { name: 'Services', href: '/#services' },
+    { name: 'Properties', href: '/#properties' },
+    { name: 'Project', href: '/#gallery' },
+    { name: 'FAQ', href: '/#faq' },
+    { name: 'Contact', href: '/#contact' },
   ];
 
   useEffect(() => {
@@ -29,8 +29,8 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           <div className="flex-shrink-0">
-            <a href="#home" className="font-heading font-semibold text-2xl text-accent">
-              ICC<span className="text-text">.</span>
+            <a href="/#home" className="font-heading font-semibold text-2xl text-accent">
+              GoodMoon<span className="text-text">.</span>
             </a>
           </div>
           

@@ -7,7 +7,7 @@ const Hero = () => {
       {/* Background Image / Overlay */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-base/40 backdrop-blur-[2px] z-10"></div>
-        <div className="w-full h-full bg-[url('/hero-bg.jpg')] bg-cover bg-center"></div>
+        <div className="w-full h-full bg-[url('/hero-bg.jpg')] bg-cover bg-center bg-no-repeat"></div>
       </div>
 
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
@@ -51,7 +51,7 @@ const Hero = () => {
             href="#contact"
             className="inline-block bg-accent hover:bg-accent-hover text-base text-white px-8 py-4 rounded-md font-medium transition-colors"
           >
-            Contact Me
+            Contact Us
           </a>
         </motion.div>
       </div>

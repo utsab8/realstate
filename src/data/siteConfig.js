@@ -1,7 +1,7 @@
 export const siteConfig = {
-  name: "Ishwor Chandra Chaulagain",
-  tagline: "Professional Surveyor",
-  subheading: "Land, hydropower, road, and cadastral surveying — from boundary consultation to full survey execution across Nepal.",
+  name: "Godmoo Engineering and Real Estate",
+  tagline: "Engineering & Real Estate Solutions",
+  subheading: "Comprehensive land, hydropower, road, and cadastral surveying — from boundary consultation to full survey execution and real estate solutions across Nepal.",
   phone: "+977 9800000000",
   email: "contact@ishworchaulagain.com",
   location: "Kathmandu, Nepal",

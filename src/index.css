@@ -3,22 +3,22 @@
 @import "tailwindcss";
 
 @theme {
-  --color-base: #FAF9F6;
+  --color-base: #F8FAFC;
   --color-base-alt: #FFFFFF;
   
   --color-surface: #FFFFFF;
-  --color-surface-border: #E5E0D8;
+  --color-surface-border: #E2E8F0;
   
-  --color-accent: #2C5530;
-  --color-accent-hover: #1E3B21;
+  --color-accent: #2563EB;
+  --color-accent-hover: #1D4ED8;
   
-  --color-secondary: #D4AF37;
-  --color-secondary-hover: #B5952F;
+  --color-secondary: #0F172A;
+  --color-secondary-hover: #1E293B;
   
-  --color-text: #1C221D;
-  --color-text-muted: #5C665D;
+  --color-text: #0F172A;
+  --color-text-muted: #64748B;
   
-  --color-success: #4a7a5c;
+  --color-success: #16A34A;
 
   --font-heading: 'Fraunces', serif;
   --font-body: 'Inter', sans-serif;

@@ -1,5 +1,6 @@
 import { siteConfig } from '../data/siteConfig';
 import { FaLinkedinIn, FaFacebookF, FaInstagram, FaYoutube, FaWhatsapp } from 'react-icons/fa';
+import { MapPin, Phone, Mail } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -13,25 +14,25 @@ const Footer = () => {
           {/* Brand */}
           <div className="lg:col-span-1">
             <a href="#home" className="inline-block font-heading font-semibold text-2xl text-accent mb-4">
-              ICC<span className="text-text">.</span>
+              GoodMoon<span className="text-text">.</span>
             </a>
             <p className="text-text-muted mb-6 text-sm leading-relaxed">
               {siteConfig.subheading}
             </p>
             <div className="flex space-x-4">
-              <a href={siteConfig.socialLinks.linkedin} className="text-text-muted hover:text-accent transition-colors" aria-label="LinkedIn">
+              <a href={siteConfig.socialLinks.linkedin} className="text-[#0a66c2] hover:opacity-80 transition-opacity" aria-label="LinkedIn">
                 <FaLinkedinIn size={20} />
               </a>
-              <a href={siteConfig.socialLinks.facebook} className="text-text-muted hover:text-accent transition-colors" aria-label="Facebook">
+              <a href={siteConfig.socialLinks.facebook} className="text-[#1877f2] hover:opacity-80 transition-opacity" aria-label="Facebook">
                 <FaFacebookF size={20} />
               </a>
-              <a href={siteConfig.socialLinks.instagram} className="text-text-muted hover:text-accent transition-colors" aria-label="Instagram">
+              <a href={siteConfig.socialLinks.instagram} className="text-[#E1306C] hover:opacity-80 transition-opacity" aria-label="Instagram">
                 <FaInstagram size={20} />
               </a>
-              <a href={siteConfig.socialLinks.youtube} className="text-text-muted hover:text-accent transition-colors" aria-label="YouTube">
+              <a href={siteConfig.socialLinks.youtube} className="text-[#ff0000] hover:opacity-80 transition-opacity" aria-label="YouTube">
                 <FaYoutube size={20} />
               </a>
-              <a href={siteConfig.socialLinks.whatsapp} className="text-text-muted hover:text-accent transition-colors" aria-label="WhatsApp">
+              <a href={siteConfig.socialLinks.whatsapp} className="text-[#25D366] hover:opacity-80 transition-opacity" aria-label="WhatsApp">
                 <FaWhatsapp size={20} />
               </a>
             </div>
@@ -40,11 +41,11 @@ const Footer = () => {
           {/* Information Links */}
           <div>
             <h4 className="text-text font-heading font-semibold mb-4">Information</h4>
-            <ul className="space-y-2">
-              <li><a href="#about" className="text-text-muted hover:text-accent text-sm transition-colors">About Me</a></li>
-              <li><a href="#gallery" className="text-text-muted hover:text-accent text-sm transition-colors">Projects</a></li>
-              <li><a href="#faq" className="text-text-muted hover:text-accent text-sm transition-colors">FAQ</a></li>
-              <li><a href="#contact" className="text-text-muted hover:text-accent text-sm transition-colors">Contact</a></li>
+            <ul className="space-y-3">
+              <li><a href="/#about" className="text-text-muted hover:text-accent text-sm transition-colors">About Us</a></li>
+              <li><a href="/#gallery" className="text-text-muted hover:text-accent text-sm transition-colors">Projects</a></li>
+              <li><a href="/#faq" className="text-text-muted hover:text-accent text-sm transition-colors">FAQ</a></li>
+              <li><a href="/#contact" className="text-text-muted hover:text-accent text-sm transition-colors">Contact</a></li>
             </ul>
           </div>
           
@@ -52,20 +53,29 @@ const Footer = () => {
           <div>
             <h4 className="text-text font-heading font-semibold mb-4">Services</h4>
             <ul className="space-y-2">
-              <li><a href="#services" className="text-text-muted hover:text-accent text-sm transition-colors">Land Purchase & Sale</a></li>
-              <li><a href="#services" className="text-text-muted hover:text-accent text-sm transition-colors">Land Consultation</a></li>
-              <li><a href="#services" className="text-text-muted hover:text-accent text-sm transition-colors">Cadastral Survey</a></li>
-              <li><a href="#services" className="text-text-muted hover:text-accent text-sm transition-colors">Topographical Survey</a></li>
+              <li><a href="/#services" className="text-text-muted hover:text-accent text-sm transition-colors">Land Purchase & Sale</a></li>
+              <li><a href="/#services" className="text-text-muted hover:text-accent text-sm transition-colors">Land Consultation</a></li>
+              <li><a href="/#services" className="text-text-muted hover:text-accent text-sm transition-colors">Cadastral Survey</a></li>
+              <li><a href="/#services" className="text-text-muted hover:text-accent text-sm transition-colors">Topographical Survey</a></li>
             </ul>
           </div>
           
           {/* Contact Details */}
           <div>
             <h4 className="text-text font-heading font-semibold mb-4">Contact Info</h4>
-            <ul className="space-y-2 text-sm text-text-muted">
-              <li>{siteConfig.location}</li>
-              <li><a href={`tel:${siteConfig.phone.replace(/\s+/g, '')}`} className="hover:text-accent transition-colors">{siteConfig.phone}</a></li>
-              <li><a href={`mailto:${siteConfig.email}`} className="hover:text-accent transition-colors">{siteConfig.email}</a></li>
+            <ul className="space-y-4 text-sm text-text-muted">
+              <li className="flex items-start gap-3">
+                <MapPin size={18} className="text-accent flex-shrink-0 mt-0.5" />
+                <span>{siteConfig.location}</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <Phone size={18} className="text-accent flex-shrink-0" />
+                <a href={`tel:${siteConfig.phone.replace(/\s+/g, '')}`} className="hover:text-accent transition-colors">{siteConfig.phone}</a>
+              </li>
+              <li className="flex items-center gap-3">
+                <Mail size={18} className="text-accent flex-shrink-0" />
+                <a href={`mailto:${siteConfig.email}`} className="hover:text-accent transition-colors">{siteConfig.email}</a>
+              </li>
             </ul>
           </div>
           

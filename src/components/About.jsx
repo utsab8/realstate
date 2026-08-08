@@ -38,17 +38,17 @@ const About = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <h2 className="text-sm text-accent uppercase tracking-widest font-medium mb-3">About Me</h2>
+            <h2 className="text-sm text-accent uppercase tracking-widest font-medium mb-3">About Us</h2>
             <h3 className="text-3xl md:text-4xl font-heading font-semibold text-text mb-6">
-              Registered Land Surveyor offering comprehensive land consultation.
+              Comprehensive Engineering & Real Estate Solutions.
             </h3>
             
             <div className="space-y-4 text-text-muted mb-8 leading-relaxed">
               <p>
-                I am a professional land surveyor based in {siteConfig.location}, specializing in boundary consultation, topographical mapping, and full cadastral survey execution.
+                We are a professional engineering and real estate firm based in {siteConfig.location}, specializing in boundary consultation, topographical mapping, full cadastral survey execution, and real estate services.
               </p>
               <p>
-                With a deep understanding of Nepal's land regulations and technical surveying requirements, I provide accurate, legally compliant, and reliable data for individuals, businesses, and government projects. Whether you are buying land, planning a hydropower project, or resolving a boundary dispute, I am here to guide you through the process.
+                With a deep understanding of Nepal's land regulations and technical surveying requirements, we provide accurate, legally compliant, and reliable data for individuals, businesses, and government projects. Whether you are buying land, planning a hydropower project, or resolving a boundary dispute, our team is here to guide you through every step of the process.
               </p>
             </div>
           </motion.div>

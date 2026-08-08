@@ -8,26 +8,26 @@ export default {
     extend: {
       colors: {
         base: {
-          DEFAULT: '#12161c',
-          alt: '#1a2029'
+          DEFAULT: '#F8FAFC',
+          alt: '#FFFFFF'
         },
         surface: {
-          DEFAULT: '#1e242c',
-          border: '#2c333d'
+          DEFAULT: '#FFFFFF',
+          border: '#E2E8F0'
         },
         accent: {
-          DEFAULT: '#b8923f',
-          hover: '#9a7a32'
+          DEFAULT: '#2563EB',
+          hover: '#1D4ED8'
         },
         secondary: {
-          DEFAULT: '#3d5a73',
-          hover: '#2c4255'
+          DEFAULT: '#0F172A',
+          hover: '#1E293B'
         },
         text: {
-          DEFAULT: '#e8e6e1',
-          muted: '#9aa1ab'
+          DEFAULT: '#0F172A',
+          muted: '#64748B'
         },
-        success: '#4a7a5c'
+        success: '#16A34A'
       },
       fontFamily: {
         heading: ['Fraunces', 'serif'],
