@@ -1,9 +1,10 @@
-import { useState } from 'react';
-import { gallery } from '../data/gallery';
+import { useState, useContext } from 'react';
+import { DataContext } from '../context/DataContext';
 import { X, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Gallery = () => {
+  const { projects: gallery } = useContext(DataContext);
   const [filter, setFilter] = useState('All');
   const [selectedImage, setSelectedImage] = useState(null);
 

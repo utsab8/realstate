@@ -1,8 +1,10 @@
-import { siteConfig } from '../data/siteConfig';
+import { useContext } from 'react';
+import { DataContext } from '../context/DataContext';
 import { FaLinkedinIn, FaFacebookF, FaInstagram, FaYoutube, FaWhatsapp } from 'react-icons/fa';
 import { MapPin, Phone, Mail } from 'lucide-react';
 
 const Footer = () => {
+  const { siteConfig } = useContext(DataContext);
   const currentYear = new Date().getFullYear();
 
   return (

@@ -1,9 +1,10 @@
-import { useState } from 'react';
-import { properties } from '../data/properties';
+import { useState, useContext } from 'react';
+import { DataContext } from '../context/DataContext';
 import { MapPin, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Properties = () => {
+  const { properties } = useContext(DataContext);
   const [filterType, setFilterType] = useState('All');
   const [filterStatus, setFilterStatus] = useState('All');
   const [selectedProperty, setSelectedProperty] = useState(null);

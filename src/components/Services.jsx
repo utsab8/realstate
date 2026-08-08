@@ -1,9 +1,13 @@
-import { services } from '../data/services';
+import { useContext } from 'react';
+import { DataContext } from '../context/DataContext';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import * as LucideIcons from 'lucide-react';
 
 const Services = () => {
+  const { services } = useContext(DataContext);
+
   return (
     <section id="services" className="py-24 bg-base">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -27,6 +31,9 @@ const Services = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => {
             const slug = service.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
+            // For dynamically added services from context that save the icon as a string name:
+            const IconComponent = typeof service.icon === 'string' ? LucideIcons[service.iconName || service.icon] : service.icon;
+
             return (
             <motion.div 
               key={service.id}
@@ -68,7 +75,8 @@ const Services = () => {
               {/* Decorative Bottom Line */}
               <div className="absolute bottom-0 left-0 h-1 w-1/3 bg-accent transform origin-left scale-x-100 opacity-80 group-hover:scale-x-110 transition-transform duration-300"></div>
             </motion.div>
-          ))}
+            );
+          })}
         </div>
 
       </div>

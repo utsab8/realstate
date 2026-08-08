@@ -1,10 +1,11 @@
-import { useState } from 'react';
-import { siteConfig } from '../data/siteConfig';
+import { useState, useContext } from 'react';
+import { DataContext } from '../context/DataContext';
 import { MapPin, Phone, Mail, CheckCircle2 } from 'lucide-react';
 import { FaLinkedinIn, FaFacebookF, FaInstagram, FaYoutube, FaWhatsapp } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 
 const Contact = () => {
+  const { siteConfig } = useContext(DataContext);
   const [status, setStatus] = useState('idle'); // idle, submitting, success
 
   const handleSubmit = (e) => {

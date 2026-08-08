@@ -4,8 +4,13 @@ import { services } from '../data/services';
 import { ArrowLeft, CheckCircle2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 
+import { DataContext } from '../context/DataContext';
+import * as LucideIcons from 'lucide-react';
+
 const ServiceDetail = () => {
   const { slug } = useParams();
+  const { services } = React.useContext(DataContext);
+
   const service = services.find(s => 
     s.id === parseInt(slug) || 
     s.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '') === slug
@@ -52,7 +57,17 @@ const ServiceDetail = () => {
               className="flex items-center gap-4"
             >
               <div className="hidden sm:flex w-16 h-16 bg-accent rounded-full items-center justify-center shadow-lg border-2 border-white/20">
-                <service.icon className="text-white" size={32} strokeWidth={2} />
+                {(() => {
+                  let IconComponent = LucideIcons.HelpCircle;
+                  if (service.iconName && LucideIcons[service.iconName]) {
+                    IconComponent = LucideIcons[service.iconName];
+                  } else if (typeof service.icon === 'string' && LucideIcons[service.icon]) {
+                    IconComponent = LucideIcons[service.icon];
+                  } else if (typeof service.icon === 'function' || typeof service.icon === 'object') {
+                    IconComponent = service.icon;
+                  }
+                  return <IconComponent className="text-white" size={32} strokeWidth={2} />;
+                })()}
               </div>
               <h1 className="text-4xl md:text-5xl font-heading font-bold text-white drop-shadow-lg max-w-3xl">
                 {service.title}

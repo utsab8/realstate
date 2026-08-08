@@ -1,8 +1,10 @@
+import { useContext } from 'react';
+import { DataContext } from '../context/DataContext';
 import { Download } from 'lucide-react';
-import { siteConfig } from '../data/siteConfig';
 import { motion } from 'framer-motion';
 
 const About = () => {
+  const { siteConfig } = useContext(DataContext);
   return (
     <section id="about" className="py-24 bg-base-alt">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -18,7 +20,7 @@ const About = () => {
           >
             <div className="aspect-[3/4] md:aspect-square bg-surface border border-surface-border rounded-md overflow-hidden relative z-10">
               <img 
-                src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1974" 
+                src={siteConfig.aboutImage} 
                 alt={siteConfig.name}
                 className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
               />
@@ -52,16 +54,11 @@ const About = () => {
           >
             <h2 className="text-sm text-accent uppercase tracking-widest font-medium mb-3">About Us</h2>
             <h3 className="text-3xl md:text-4xl font-heading font-semibold text-text mb-6">
-              Comprehensive Engineering & Real Estate Solutions.
+              {siteConfig.aboutTitle}
             </h3>
             
-            <div className="space-y-4 text-text-muted mb-8 leading-relaxed text-justify">
-              <p>
-                We are a professional engineering and real estate firm based in {siteConfig.location}, specializing in boundary consultation, topographical mapping, full cadastral survey execution, and real estate services.
-              </p>
-              <p>
-                With a deep understanding of Nepal's land regulations and technical surveying requirements, we provide accurate, legally compliant, and reliable data for individuals, businesses, and government projects. Whether you are buying land, planning a hydropower project, or resolving a boundary dispute, our team is here to guide you through every step of the process.
-              </p>
+            <div className="space-y-4 text-text-muted mb-8 leading-relaxed text-justify whitespace-pre-line">
+              {siteConfig.aboutText}
             </div>
           </motion.div>
 

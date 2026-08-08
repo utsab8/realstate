@@ -5,15 +5,16 @@ import { siteConfig } from '../data/siteConfig';
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
 
   const navLinks = [
-    { name: 'Home', href: '/#home' },
-    { name: 'About', href: '/#about' },
-    { name: 'Services', href: '/#services' },
-    { name: 'Properties', href: '/#properties' },
-    { name: 'Project', href: '/#gallery' },
-    { name: 'FAQ', href: '/#faq' },
-    { name: 'Contact', href: '/#contact' },
+    { name: 'Home', href: '/#home', id: 'home' },
+    { name: 'About', href: '/#about', id: 'about' },
+    { name: 'Services', href: '/#services', id: 'services' },
+    { name: 'Properties', href: '/#properties', id: 'properties' },
+    { name: 'Project', href: '/#gallery', id: 'gallery' },
+    { name: 'FAQ', href: '/#faq', id: 'faq' },
+    { name: 'Contact', href: '/#contact', id: 'contact' },
   ];
 
   useEffect(() => {
@@ -23,6 +24,34 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: '-50% 0px -50% 0px', // Trigger when section is exactly in the middle of the screen
+      threshold: 0
+    };
+
+    const observerCallback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+          // Optional: Update URL without jumping
+          window.history.replaceState(null, null, `/#${entry.target.id}`);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    // Observe all sections
+    navLinks.forEach((link) => {
+      const element = document.getElementById(link.id);
+      if (element) observer.observe(element);
+    });
+
+    return () => observer.disconnect();
+  }, [navLinks]);
 
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-base/95 backdrop-blur-md shadow-lg shadow-black/20 py-3' : 'bg-transparent py-5'}`}>
@@ -41,7 +70,9 @@ const Navbar = () => {
                 <a
                   key={link.name}
                   href={link.href}
-                  className="text-text hover:text-accent transition-colors px-3 py-2 rounded-md text-sm font-medium"
+                  className={`transition-colors px-3 py-2 rounded-md text-sm font-medium ${
+                    activeSection === link.id ? 'text-accent' : 'text-text hover:text-accent'
+                  }`}
                 >
                   {link.name}
                 </a>
@@ -70,7 +101,9 @@ const Navbar = () => {
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="text-text hover:text-accent block px-3 py-2 rounded-md text-base font-medium"
+                className={`block px-3 py-2 rounded-md text-base font-medium ${
+                  activeSection === link.id ? 'text-accent bg-surface-alt' : 'text-text hover:text-accent'
+                }`}
               >
                 {link.name}
               </a>

@@ -1,13 +1,18 @@
-import { siteConfig } from '../data/siteConfig';
+import { useContext } from 'react';
+import { DataContext } from '../context/DataContext';
 import { motion } from 'framer-motion';
 
 const Hero = () => {
+  const { siteConfig } = useContext(DataContext);
   return (
     <section id="home" className="relative h-screen flex items-center justify-center bg-base overflow-hidden">
       {/* Background Image / Overlay */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-base/40 backdrop-blur-[2px] z-10"></div>
-        <div className="w-full h-full bg-[url('/hero-bg.jpg')] bg-cover bg-center bg-no-repeat"></div>
+        <div 
+          className="w-full h-full bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url('${siteConfig.heroImage}')` }}
+        ></div>
       </div>
 
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
