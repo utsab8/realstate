@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
-import { LayoutDashboard, Layers, FileText, MessageSquare, Settings, LogOut, Menu, X, User, HelpCircle } from 'lucide-react';
+import { LayoutDashboard, Layers, FileText, MessageSquare, Settings, LogOut, Menu, X, User, HelpCircle, Home } from 'lucide-react';
 
 const AdminLayout = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -11,7 +11,7 @@ const AdminLayout = () => {
     { name: 'Dashboard', path: '/admin', icon: LayoutDashboard },
     { name: 'Services', path: '/admin/services', icon: Layers },
     { name: 'Projects', path: '/admin/projects', icon: FileText },
-    { name: 'Messages', path: '/admin/messages', icon: MessageSquare },
+    { name: 'Properties', path: '/admin/properties', icon: Home },
     { name: 'FAQs', path: '/admin/faqs', icon: HelpCircle },
     { name: 'Pages', path: '/admin/pages', icon: Settings },
   ];

@@ -1,7 +1,28 @@
-import { useContext } from 'react';
+import { useContext, useEffect, useRef } from 'react';
 import { DataContext } from '../context/DataContext';
-import { Download } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, useInView, animate } from 'framer-motion';
+
+const AnimatedCounter = ({ from = 0, to, suffix = '+' }) => {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true });
+
+  useEffect(() => {
+    if (inView) {
+      const controls = animate(from, to, {
+        duration: 2,
+        ease: "easeOut",
+        onUpdate(value) {
+          if (ref.current) {
+            ref.current.textContent = Math.round(value) + suffix;
+          }
+        }
+      });
+      return () => controls.stop();
+    }
+  }, [inView, from, to, suffix]);
+
+  return <span ref={ref}>{from}{suffix}</span>;
+};
 
 const About = () => {
   const { siteConfig } = useContext(DataContext);
@@ -29,17 +50,17 @@ const About = () => {
             {/* Experience Badge */}
             <div className="absolute -bottom-6 -right-6 bg-surface border border-surface-border p-6 rounded-md z-20 shadow-xl flex flex-col gap-4">
               <div>
-                <p className="text-3xl font-heading font-semibold text-accent mb-1">10+</p>
+                <p className="text-3xl font-heading font-semibold text-accent mb-1"><AnimatedCounter to={10} /></p>
                 <p className="text-text-muted text-xs uppercase tracking-wider">Years Experience</p>
               </div>
               <div className="w-full h-px bg-surface-border"></div>
               <div>
-                <p className="text-3xl font-heading font-semibold text-accent mb-1">50+</p>
+                <p className="text-3xl font-heading font-semibold text-accent mb-1"><AnimatedCounter to={50} /></p>
                 <p className="text-text-muted text-xs uppercase tracking-wider">Happy Clients</p>
               </div>
               <div className="w-full h-px bg-surface-border"></div>
               <div>
-                <p className="text-3xl font-heading font-semibold text-accent mb-1">120+</p>
+                <p className="text-3xl font-heading font-semibold text-accent mb-1"><AnimatedCounter to={120} /></p>
                 <p className="text-text-muted text-xs uppercase tracking-wider">Projects Done</p>
               </div>
             </div>

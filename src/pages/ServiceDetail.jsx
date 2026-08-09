@@ -26,7 +26,7 @@ const ServiceDetail = () => {
       <div className="min-h-screen pt-32 pb-24 flex flex-col items-center justify-center bg-base text-center px-4">
         <h1 className="text-4xl font-heading font-bold text-text mb-4">Service Not Found</h1>
         <p className="text-text-muted mb-8">The service you are looking for does not exist.</p>
-        <Link to="/" className="inline-flex items-center text-accent hover:text-accent-hover font-medium">
+        <Link to="/" className="inline-flex items-center text-text hover:text-accent transition-all font-medium border border-surface-border hover:border-accent/50 bg-transparent hover:bg-accent/5 rounded-full px-4 py-2 text-sm w-fit mt-4">
           <ArrowLeft size={16} className="mr-2" />
           Back to Home
         </Link>
@@ -46,7 +46,7 @@ const ServiceDetail = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-base to-black/40"></div>
         <div className="absolute inset-0 flex items-center">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-16">
-            <Link to="/#services" className="inline-flex items-center text-white/90 hover:text-white font-medium mb-8 transition-colors backdrop-blur-md bg-black/20 hover:bg-black/40 border border-white/30 rounded-full px-5 py-2 w-fit -mt-4">
+            <Link to="/#services" className="inline-flex items-center text-white/90 hover:text-white transition-all font-medium border border-white/30 hover:border-white/60 bg-transparent hover:bg-white/10 rounded-full px-4 py-2 text-sm w-fit -mt-4 mb-8">
               <ArrowLeft size={16} className="mr-2" />
               Back to Services
             </Link>
@@ -87,10 +87,10 @@ const ServiceDetail = () => {
             </span>
             
             <div className="prose prose-lg text-text-muted max-w-none">
-              <p className="text-xl font-medium text-text mb-6 leading-relaxed">
+              <p className="text-xl font-medium text-text mb-6 leading-relaxed text-justify">
                 {service.description}
               </p>
-              <p className="whitespace-pre-line leading-relaxed">
+              <p className="whitespace-pre-line leading-relaxed text-justify">
                 {service.fullDescription}
               </p>
             </div>

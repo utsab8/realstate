@@ -1,14 +1,14 @@
 import { useState, useContext } from 'react';
 import { DataContext } from '../context/DataContext';
-import { MapPin, X, ChevronLeft, ChevronRight } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
+import { MapPin } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const Properties = () => {
+  const navigate = useNavigate();
   const { properties } = useContext(DataContext);
   const [filterType, setFilterType] = useState('All');
   const [filterStatus, setFilterStatus] = useState('All');
-  const [selectedProperty, setSelectedProperty] = useState(null);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const filteredProperties = properties.filter(prop => {
     const matchType = filterType === 'All' || prop.type === filterType;
@@ -22,29 +22,6 @@ const Properties = () => {
       case 'Available': return 'bg-secondary/10 text-secondary border-secondary/20';
       case 'Sold': return 'bg-surface-border text-text-muted border-surface-border';
       default: return 'bg-surface-border text-text';
-    }
-  };
-
-  const openProperty = (prop) => {
-    setSelectedProperty(prop);
-    setCurrentImageIndex(0);
-  };
-
-  const closeProperty = () => {
-    setSelectedProperty(null);
-  };
-
-  const nextImage = (e) => {
-    e.stopPropagation();
-    if (selectedProperty) {
-      setCurrentImageIndex((prev) => (prev + 1) % selectedProperty.images.length);
-    }
-  };
-
-  const prevImage = (e) => {
-    e.stopPropagation();
-    if (selectedProperty) {
-      setCurrentImageIndex((prev) => (prev - 1 + selectedProperty.images.length) % selectedProperty.images.length);
     }
   };
 
@@ -110,7 +87,7 @@ const Properties = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="bg-surface border border-surface-border rounded-md overflow-hidden hover:border-accent/50 transition-all cursor-pointer shadow-sm hover:shadow-md group flex flex-col"
-              onClick={() => openProperty(prop)}
+              onClick={() => navigate(`/property/${prop.id}`)}
             >
               <div className="w-full h-56 bg-base-alt relative overflow-hidden">
                 {prop.images && prop.images.length > 0 ? (
@@ -138,7 +115,7 @@ const Properties = () => {
                   </div>
                   <h4 className="text-lg font-heading font-semibold text-text mb-2 line-clamp-2">{prop.title}</h4>
                   <p className="text-text font-medium mb-3">{prop.price}</p>
-                  <p className="text-text-muted text-sm mb-4 line-clamp-2">{prop.description}</p>
+                  <p className="text-text-muted text-sm mb-4 line-clamp-2 text-justify">{prop.description}</p>
                 </div>
                 
                 <div className="flex items-center pt-4 border-t border-surface-border/50 text-text-muted text-sm mt-auto">
@@ -157,112 +134,6 @@ const Properties = () => {
 
       </div>
 
-      {/* Property Details Modal */}
-      <AnimatePresence>
-        {selectedProperty && (
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-base/80 backdrop-blur-sm"
-            onClick={closeProperty}
-          >
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.95, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="max-w-5xl w-full max-h-[90vh] bg-surface border border-surface-border rounded-lg overflow-y-auto shadow-2xl flex flex-col"
-              onClick={e => e.stopPropagation()}
-            >
-              {/* Modal Header */}
-              <div className="flex justify-between items-center p-4 border-b border-surface-border sticky top-0 bg-surface z-20">
-                <h3 className="font-heading font-semibold text-xl text-text truncate pr-4">{selectedProperty.title}</h3>
-                <button 
-                  onClick={closeProperty}
-                  className="p-2 text-text-muted hover:text-text hover:bg-base rounded-md transition-colors"
-                >
-                  <X size={24} />
-                </button>
-              </div>
-
-              <div className="flex flex-col md:flex-row flex-grow">
-                {/* Image Carousel */}
-                <div className="w-full md:w-1/2 relative bg-base-alt min-h-[300px] flex items-center justify-center group">
-                  {selectedProperty.images && selectedProperty.images.length > 0 ? (
-                    <>
-                      <img 
-                        src={selectedProperty.images[currentImageIndex]} 
-                        alt={`${selectedProperty.title} image ${currentImageIndex + 1}`}
-                        className="w-full h-full object-cover max-h-[500px]"
-                      />
-                      {selectedProperty.images.length > 1 && (
-                        <>
-                          <button 
-                            onClick={prevImage}
-                            className="absolute left-4 top-1/2 -translate-y-1/2 p-2 bg-surface/80 hover:bg-surface text-text rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity"
-                          >
-                            <ChevronLeft size={24} />
-                          </button>
-                          <button 
-                            onClick={nextImage}
-                            className="absolute right-4 top-1/2 -translate-y-1/2 p-2 bg-surface/80 hover:bg-surface text-text rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity"
-                          >
-                            <ChevronRight size={24} />
-                          </button>
-                          <div className="absolute bottom-4 left-1/2 -translate-y-1/2 flex gap-2">
-                            {selectedProperty.images.map((_, idx) => (
-                              <div 
-                                key={idx} 
-                                className={`w-2 h-2 rounded-full ${idx === currentImageIndex ? 'bg-accent' : 'bg-surface-border'}`} 
-                              />
-                            ))}
-                          </div>
-                        </>
-                      )}
-                    </>
-                  ) : (
-                    <span className="text-text-muted">No Images</span>
-                  )}
-                </div>
-
-                {/* Details */}
-                <div className="w-full md:w-1/2 p-6 flex flex-col">
-                  <div className="flex justify-between items-start mb-4">
-                    <span className={`text-sm px-3 py-1 font-medium rounded-full bg-base border ${getStatusColor(selectedProperty.status)}`}>
-                      {selectedProperty.status}
-                    </span>
-                    <span className="text-sm font-medium uppercase tracking-wider text-accent">{selectedProperty.type}</span>
-                  </div>
-                  
-                  <p className="text-2xl font-bold text-text mb-6">{selectedProperty.price}</p>
-                  
-                  <div className="flex items-start text-text-muted mb-6">
-                    <MapPin size={20} className="mr-3 text-accent flex-shrink-0 mt-0.5" />
-                    <span className="leading-relaxed">{selectedProperty.location}</span>
-                  </div>
-
-                  <div className="mb-8">
-                    <h4 className="font-heading font-semibold text-text mb-3">Description</h4>
-                    <p className="text-sm text-text-muted leading-relaxed whitespace-pre-line">
-                      {selectedProperty.description}
-                    </p>
-                  </div>
-                  
-                  <div className="mt-auto">
-                    <a 
-                      href="#contact" 
-                      onClick={closeProperty}
-                      className="block w-full text-center bg-accent hover:bg-accent-hover text-white font-medium py-3 px-4 rounded-md transition-colors"
-                    >
-                      Inquire About This Property
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </section>
   );
 };

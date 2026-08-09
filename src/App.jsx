@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Outlet, Navigate } from 'react-
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import ServiceDetail from './pages/ServiceDetail';
+import PropertyDetail from './pages/PropertyDetail';
 import Footer from './components/Footer';
 
 // Admin Imports
@@ -11,7 +12,7 @@ import Login from './pages/admin/Login';
 import Dashboard from './pages/admin/Dashboard';
 import ManageProjects from './pages/admin/ManageProjects';
 import ManageServices from './pages/admin/ManageServices';
-import ManageMessages from './pages/admin/ManageMessages';
+import ManageProperties from './pages/admin/ManageProperties';
 import ManagePages from './pages/admin/ManagePages';
 import ManageFAQs from './pages/admin/ManageFAQs';
 
@@ -43,6 +44,7 @@ function App() {
           <Route element={<PublicLayout />}>
             <Route path="/" element={<Home />} />
             <Route path="/service/:slug" element={<ServiceDetail />} />
+            <Route path="/property/:id" element={<PropertyDetail />} />
           </Route>
 
           {/* Admin Routes */}
@@ -58,7 +60,7 @@ function App() {
             <Route index element={<Dashboard />} />
             <Route path="projects" element={<ManageProjects />} />
             <Route path="services" element={<ManageServices />} />
-            <Route path="messages" element={<ManageMessages />} />
+            <Route path="properties" element={<ManageProperties />} />
             <Route path="pages" element={<ManagePages />} />
             <Route path="faqs" element={<ManageFAQs />} />
           </Route>
